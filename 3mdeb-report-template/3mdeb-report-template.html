@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>@@TITLE@@</title>
+    <meta charset="utf-8">
+    <script>
+      companyName = "3MDEB";
+      companyStreet = "ul. Burgaska 9D/10";
+      companyCity = "80-287 Gdańsk, Poland";
+      companyTaxID = "PL2530164147";
+
+      contactName = "Piotr Król, 3mdeb CEO";
+      contactPhone = "+48 880 673 344 ";
+      contactMail = "contact@3mdeb.com";
+
+      linkSite = "https://3mdeb.com";
+      linkPresentation = "https://3mdeb.com/company/about-us";
+
+      showLinkPresentation = '1';
+      showLinkSite = '1';
+
+      </script>
+    <link rel="stylesheet" type="text/css" href="@@TEMPLATE_PREFIX@@/3mdeb-report-template/css/style.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+<style>
+.pure-table thead {
+
+     background-color: #3D3D3D !important;
+     color: #ebebeb;
+     text-align: left;
+     vertical-align: bottom;
+     font-family:"montserratLight" ,sans-serif;
+  }
+  .th{
+    padding-top:9px!important;
+    padding-bottom:9px!important;
+  }
+  .pure-table td {
+    border-left: 1px solid #E2E2E2 !important;
+    border-left-width: 1px;
+    border-width: 0 0 0 1px;
+    border-left-width: 1px;
+    font-size: 9px !important;
+    margin: 0;
+    overflow: visible;
+    padding: 0.5em 0.6em !important;
+  }
+
+  .pure-table th {
+    border-left: 1px solid #3D3D3D !important;
+    border-left-width: 1px;
+    border-width: 0 0 0 1px;
+    border-left-width: 1px;
+    font-size: 8px !important;
+    margin: 0;
+    overflow: visible;
+    padding: 0.4em 0.8em !important;
+  }
+  .pure-table {
+    border:0px !important;
+  }
+  .pure-table table tbody{
+
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  border: 1px solid #E2E2E2 !important;
+
+}
+
+
+
+.pure-table-bordered td {
+  border-bottom: 1px solid #cbcbcb;
+}
+
+.pure-table td, .pure-table th {
+  border-left: 1px solid #cbcbcb;
+  border-left-width: 1px;
+  border-width: 0 0 0 1px;
+  border-bottom-width: 0px;
+  border-left-width: 1px;
+  font-size: inherit;
+  margin: 0;
+  overflow: visible;
+  padding: .5em 1em;
+}
+
+.pure-table-striped tr:nth-child(2n-1) td {
+  background-color: #f2f2f2;
+}
+
+.flag-true{
+width:15px;
+height:15px;
+background:url(@@TEMPLATE_PREFIX@@/3mdeb-report-template/images/accept.svg);
+margin-left:auto;
+margin-right:auto;
+background-size:8px auto;
+background-position:center center;
+background-repeat:no-repeat;
+
+}
+
+.flag-false{
+margin-left:auto;
+margin-right:auto;
+width:15px;
+height:15px;
+background:url(@@TEMPLATE_PREFIX@@/3mdeb-report-template/images/close.svg);
+background-size:8px auto;
+background-position:center center;
+background-repeat:no-repeat;
+}
+
+h4{
+
+
+    font-weight: bold;
+    font-family: montserratBold;
+    font-size:12px;
+
+}
+</style>
+
+  </head>
+  <body>
+
+    <script src="@@TEMPLATE_PREFIX@@/3mdeb-report-template/js/remark.js">
+    </script>
+    <script src="@@TEMPLATE_PREFIX@@/3mdeb-report-template/js/jquery.js">
+    </script>
+    <script>
+
+
+	var slideshow = remark.create({
+	    sourceUrl: '@@MARKDOWN_FILE@@',
+            slideNumberFormat: '%current%',
+      ratio: '827:1169'
+	});
+	slideshow.on('afterShowSlide', function (slide) {
+    $( ".remark-slide-content" ).each(function( index ) {
+      if($(this).hasClass( "intro")){
+          $(this).append("<div class='companyinfo'><p><b>" + companyName + "</b></p><p>" + companyStreet + "</p><p>" + companyCity + "</p> <p>TAX ID: " + companyTaxID + "</p></div>");
+          $(this).append("<div class='companycontact'><p><b>CONTACT</b></p> <p> " + contactName + " </p><p> " + contactPhone + " </p><p><a href='mailto:" + contactMail+ "'>" + contactMail+ "</a></p></div>");
+          $(this).append("<div class='companylinks'><div id='linksite'><a href='" + linkSite + "'><img src='@@TEMPLATE_PREFIX@@/3mdeb-report-template/images/monitor.svg' class='intro-icon'><br>Website</a></div><div id='linkpresentation'><a href='" + linkPresentation + "'><img class='intro-icon' src='@@TEMPLATE_PREFIX@@/3mdeb-report-template/images/website.svg'><br>About Us</a></div></div>");
+
+          if(showLinkPresentation == '1'){
+
+          }else{
+            $('#linkpresentation').remove();
+          }
+
+          if(showLinkSite== '1'){
+
+          }else{
+            $('#linksite').remove();
+          }
+
+      }else{
+      $( ".company-info" ).remove();
+      $( ".company-contact" ).remove();
+      $( ".company-links" ).remove();
+      };
+    });
+		});
+    </script>
+
+  </body>
+</html>

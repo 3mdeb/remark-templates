@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>@@TITLE@@</title>
+    <meta charset="utf-8">
+    <script>
+        classTitle = "class/conference title";
+        courseAuthor = "3mdeb";
+    </script>
+    <link rel="stylesheet" type="text/css" href="@@TEMPLATE_PREFIX@@/3mdeb-presentation-template/slides.css">
+    
+    <style>
+    </style>
+  </head>
+  <body>
+    <script src="@@TEMPLATE_PREFIX@@/dasharo-presentation-template/js/remark.js">
+    </script>
+    <script src="@@TEMPLATE_PREFIX@@/dasharo-presentation-template/js/jquery.js">
+    </script>
+    <script>
+      var slideshow = remark.create({
+	sourceUrl: '@@MARKDOWN_FILE@@',
+        countIncrementalSlides: false
+      });
+
+      slideshow.on('afterShowSlide', function (slide) {
+       if ($(".bottomBar")[0]){
+        $( ".bottomBar" ).remove();
+      } else {
+        // Do something if class does not exist
+      }
+
+       $('.remark-slide-content').append(
+           "<div class='bottomBar'>"+ classTitle +
+           " <br> &copy Copyright 2023. All Rights Reserved | "
+           + courseAuthor + "</div>"
+           );
+      });
+
+    </script>
+  </body>
+</html>

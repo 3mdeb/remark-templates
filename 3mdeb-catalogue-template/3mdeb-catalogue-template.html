@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>@@TITLE@@</title>
+    <meta charset="utf-8">
+    <script>
+        classTitle = "class/conference title";
+        courseAuthor = "author";
+    </script>
+    <link rel="stylesheet" type="text/css" href="@@TEMPLATE_PREFIX@@/3mdeb-catalogue-template/css/style.css">
+
+    <style>
+    </style>
+  </head>
+  <body>
+    <script src="@@TEMPLATE_PREFIX@@/3mdeb-catalogue-template/js/remark.js">
+    </script>
+    <script src="@@TEMPLATE_PREFIX@@/3mdeb-catalogue-template/js/jquery.js">
+    </script>
+    <script>
+      var slideshow = remark.create({
+	sourceUrl: '@@MARKDOWN_FILE@@',
+        countIncrementalSlides: false,
+        ratio: '210:297'
+      });
+
+      slideshow.on('afterShowSlide', function (slide) {
+       if ($(".bottomBar")[0]){
+        $( ".bottomBar" ).remove();
+      } else {
+        // Do something if class does not exist
+      }
+
+       $('.remark-slide-content').append(
+           "<div class='bottomBar'>"+ " <a href='tel:+48880673344'>+48 880 673 344</a> " + " <a href='mailto:contact@3mdeb.com'>contact@3mdeb.com</a> " + "<a href='https://3mdeb.com'><img src='/images/website.png' height='8px' width='8px'>   Website</a>" + "<a href='https://3mdeb.com/company/about-us/'><img src='/images/about-us.png' height='8px' width='8px'>   About Us</a>"
+
+            + "</div>"
+           );
+      });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>@@TITLE@@</title>
+    <meta charset="utf-8">
+    <script>
+        classTitle = "class/conference title";
+        courseAuthor = "3mdeb";
+    </script>
+    <link rel="stylesheet" type="text/css" href="@@TEMPLATE_PREFIX@@/3mdeb-pet-presentation-template/slides.css">
+    
+    <style>
+    </style>
+  </head>
+  <body>
+    <script src="@@TEMPLATE_PREFIX@@/3mdeb-pet-presentation-template/js/remark.js">
+    </script>
+    <script src="@@TEMPLATE_PREFIX@@/3mdeb-pet-presentation-template/js/jquery.js">
+    </script>
+    <script>
+      var slideshow = remark.create({
+        sourceUrl: '@@MARKDOWN_FILE@@',
+        slideNumberFormat: function (current, total) {
+                                    return '';
+        }
+      });
+    </script>
+  </body>
+</html>

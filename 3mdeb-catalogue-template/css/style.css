@@ -1,0 +1,494 @@
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+@font-face {
+    font-family: "Open Sans Bold";
+    src: url(../fonts/opensans/OpenSans-Bold.ttf) format("truetype");
+    font-weight: Bold;
+}
+@font-face {
+    font-family: "Open Sans Regular";
+    src: url(../fonts/opensans/OpenSans-Regular.ttf) format("truetype");
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Open Sans Light";
+    src: url(../fonts/opensans/OpenSans-Light.ttf) format("truetype");
+    font-weight: light;
+}
+@font-face {
+    font-family: "Montserrat Bold";
+    src: url(../fonts/Montserrat/Montserrat-SemiBold.ttf) format("truetype");
+        font-weight: SemiBold;
+}
+@font-face {
+    font-family: "Montserrat Regular";
+    src: url(../fonts/Montserrat/Montserrat-Regular.ttf) format("truetype");
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Montserrat Light";
+    src: url(../fonts/Montserrat/Montserrat-Light.ttf) format("truetype");
+        font-weight: light;
+}
+
+body {
+  font-family: "Open Sans Regular", sans-serif
+}
+body strong{
+  font-family: "Open Sans Bold", sans-serif
+}
+.intro h1, .outro h1 {
+    font-family: 'Montserrat Regular';
+    font-weight: normal;
+    color:#38d430;
+}
+h1, h2, h3 {
+    font-family: 'Montserrat SemiBold';
+    font-weight: bold;
+    color:#000000;
+}
+h1 strong, h2 strong, h3 strong{
+    color:#38d430;
+}
+
+.remark-slide-content h3{
+    font-size: 10px;
+    position: fixed;
+    right: 30px;
+    top: 28px;
+    text-align: right;
+    color: #000000;
+
+}
+.remark-slide-content h2{
+    font-size: 16px;
+    color: #000000;
+}
+
+.remark-slide-content h1{
+  font-size: 16px;
+  position: fixed;
+  left: 20px;
+  top: 80px;
+}
+
+.intro h3, .outro h3{
+  color: #fff;
+  text-align: center;
+  position: static;
+  font-size: 30px;
+  right: 0;
+  top: 0;
+}
+.image {
+  margin: 0 auto;
+  display: block;
+}
+.image-100 {
+    width: 100%;
+}
+
+.image-99 {
+    width: 99%;
+}
+.image-95 {
+    width: 95%;
+}
+.image-90 {
+    width: 90%;
+}
+.image-80 {
+    width: 80%;
+}
+.image-75 {
+    width: 75%;
+}
+.image-70 {
+    width: 70%;
+}
+.image-65 {
+    width: 65%;
+}
+.image-60 {
+    width: 60%;
+}
+.image-50 {
+    width: 50%;
+}
+.image-45 {
+    width: 45%;
+}
+.image-40 {
+    width: 40%;
+}
+.image-35 {
+    width: 35%;
+}
+.image-30 {
+    width: 30%;
+}
+.image-20 {
+    width: 20%;
+}
+.image-15 {
+    width: 15%;
+}
+.image-10 {
+    width: 10%;
+}
+.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono' }
+
+.small-code .remark-code-line {
+    font-size: 10px;
+}
+
+.code-11px .remark-code-line {
+    font-size: 11px;
+}
+
+.code-12px .remark-code-line {
+    font-size: 12px;
+}
+
+.code-13px .remark-code-line {
+    font-size: 13px;
+}
+
+.code-15px .remark-code-line {
+    font-size: 15px;
+}
+
+.medium-code .remark-code-line {
+    font-size: 16px;
+}
+
+.diff-code {
+    margin-left: -40px;
+}
+
+.diff-code .remark-code-line {
+    font-size: 14px;
+}
+
+.mem-code .remark-code-line {
+    font-size: 15px;
+}
+
+.dp-code .remark-code-line {
+    font-size: 22px;
+}
+
+.bottomBar{
+    font-size: 9px;
+    color: #fff;
+    position:fixed;
+    bottom: 8px;
+    left:49%;
+    transform: translate(-50%,0);
+    text-align:center;
+    width:100%;
+}
+.bottomBar a {
+    padding: 0 10px 0 10px;
+    color: #fff;
+    text-decoration: none;
+}
+.bottomBar a:hover {
+    color: #38d430;
+}
+
+.remark-slide-content {
+    background-image: url('../images/page-bg.jpg');
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
+    color:#333;
+    padding: 130px 1.4rem 2rem 1.4rem;
+  font-size: 12px;
+/*    column-count: 2;
+    -moz-column-count: 2;
+    column-gap: 10px; */
+}
+
+.intro p, .outro p{
+    color:#fff;
+
+}
+
+.intro h2, .outro h2{
+    background-position: calc(50% - 65px) 2px;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    color:#fff;
+    font-size:20px;
+}
+
+.remark-slide-number{
+    bottom: 8px;
+    color: #38d430;
+    font-size: 10px;
+    opacity: 1;
+}
+
+p{
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+}
+
+.left-code-column50 {
+    width: 55%;
+    float: left;
+    margin-left:-50px;
+    margin-top:-30px;
+}
+
+.right-code-column50 {
+    width: 55%;
+    float: right;
+    margin-right:-50px;
+    margin-top:-30px;
+}
+.left-column100 {
+    width: 100%;
+    float: left;
+}
+.left-column50 {
+    width: 50%;
+    float: left;
+}
+
+.left-column45 {
+    width: 45%;
+    float: left;
+}
+.left-column49 {
+    width: 49%;
+    float: left;
+}
+.left-column52 {
+    width: 52%;
+    float: left;
+}
+.left-column55 {
+    width: 55%;
+    float: left;
+}
+.left-column65 {
+    width: 65%;
+    float: left;
+}
+
+.left-column30 {
+    width: 30%;
+    float: left;
+}
+.right-column45 {
+    width: 45%;
+    float: right;
+}
+.right-column49 {
+    width: 49%;
+    float: right;
+}
+
+.right-column50 {
+    width: 50%;
+    float: right;
+}
+.right-column52 {
+    width: 52%;
+    float: right;
+}
+.right-column55 {
+    width: 55%;
+    float: right;
+}
+
+
+.right-column70 {
+    width: 70%;
+    float: right;
+}
+
+.intro {
+    background-image: url('../images/front-bg.jpg') !important;
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
+    color:#fff;
+}
+.outro {
+    background-image: url('../images/back-bg.jpg') !important;
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
+    color:#fff;
+}
+
+a{
+      color:#38d430;
+      font-size:1em;
+}
+
+.intro  h1, .outro h1 {
+    font-size:20px;
+    position:static !important;
+    max-width:none !important;
+    top:0;
+    right:0;
+    margin-top: -50px;
+}
+
+.intro .bottomBar{
+    display:none;
+}
+
+.remak-slide ul {
+    list-style-type: disc;
+    padding: 0;
+    margin: 0;
+    margin-top:-0.5em;
+    margin-bottom:-0.5em;
+    margin-left: 1em;
+        list-style-color: #38d430;
+}
+
+
+.code-comment {
+    position:relative;
+    top:-0.7em;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+.footnote {
+    font-size: 10px;
+}
+
+.hljs-default .hljs, .hljs-default .hljs-subst {
+    color: #444;
+    font-size: 15px;
+}
+
+.image-left {
+    float: left;
+    width: 20em;
+    margin-top: -2em;
+    margin-left: -2em;
+}
+
+@page {
+  size: 480px 680px;
+  margin: 0;
+}
+
+@media print {
+  .remark-slide-scaler {
+    height: 100% !important;
+    transform: scale(1) !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 50% !important;
+  }
+}
+.code-comment{
+     position: relative;
+     top: -1em;
+     font-style: italic;
+     font-size:0.75em;
+
+}
+
+a {
+    font-size: 1em;
+    font-weight: bold;
+}
+.book-a-call a {
+    background-color: #38d430;
+    color: white;
+    padding: 15px 34px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 15px 2px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: bold;
+}
+.remark-slide-content ol, .remark-slide-content ul {
+    padding-inline-start: 1.2rem!important;
+    margin: 0;
+}
+ol {
+    list-style: none;
+    counter-reset: li;
+    line-height: 1.2rem;
+    margin: 0px;
+}
+li {
+    counter-increment: li;
+    line-height: 1.2rem;
+}
+ol li::before {
+    content: counter(li);
+    color: #38d430;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1.5em;
+    margin-right: 0.5em;
+    text-align: right;
+    direction: rtl}
+ul, ul ul {
+    list-style: none;
+}
+ul li::before {
+    content: "\2022";
+    color: #38d430;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.page-2, .page-3, .page-4, .page-5, .page-6, .page-7, .page-8, .page-9, .page-10, .page-11, {
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
+}
+.page-2 {
+    background-image: url('../images/page-2.jpg');
+}
+.page-3 {
+    background-image: url('../images/page-3.jpg');
+}
+.page-4 {
+    background-image: url('../images/page-4.jpg');
+}
+.page-5 {
+    background-image: url('../images/page-5.jpg');
+}
+.page-6 {
+    background-image: url('../images/page-6.jpg');
+}
+.page-7 {
+    background-image: url('../images/page-7.jpg');
+}
+.page-8 {
+    background-image: url('../images/page-8.jpg');
+}
+.page-9 {
+    background-image: url('../images/page-9.jpg');
+}
+.page-10 {
+    background-image: url('../images/page-10.jpg');
+}
+.page-11 {
+    background-image: url('../images/page-11.jpg');
+}
+.page-10, .page-11 {
+  font-size: 11px;
+}

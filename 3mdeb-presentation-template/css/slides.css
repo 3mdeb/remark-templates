@@ -5,32 +5,32 @@
 
 @font-face {
     font-family: "Open Sans Bold";
-    src: url(fonts/opensans/OpenSans-Bold.ttf) format("truetype");
+    src: url(../fonts/opensans/OpenSans-Bold.ttf) format("truetype");
 }
 
 @font-face {
     font-family: "Open Sans Regular";
-    src: url(fonts/opensans/OpenSans-Regular.ttf) format("truetype");
+    src: url(../fonts/opensans/OpenSans-Regular.ttf) format("truetype");
 }
 
 @font-face {
     font-family: "Open Sans Light";
-    src: url(fonts/opensans/OpenSans-Light.ttf) format("truetype");
+    src: url(../fonts/opensans/OpenSans-Light.ttf) format("truetype");
 }
 
 @font-face {
     font-family: "Miriam Libre Bold";
-    src: url(fonts/miriam/MiriamLibre-Bold.ttf) format("truetype");
+    src: url(../fonts/miriam/MiriamLibre-Bold.ttf) format("truetype");
 }
 
 @font-face {
     font-family: "Miriam Libre Regular";
-    src: url(fonts/miriam/MiriamLibre-Regular.ttf) format("truetype");
+    src: url(../fonts/miriam/MiriamLibre-Regular.ttf) format("truetype");
 }
 
 @font-face {
     font-family: "Miriam Libre Light";
-    src: url(fonts/miriam/MiriamLibre-Light.ttf) format("truetype");
+    src: url(../fonts/miriam/MiriamLibre-Light.ttf) format("truetype");
 }
 
 body { font-family: "Open Sans Regular", sans-serif }
@@ -165,7 +165,7 @@ h1, h2, h3 {
 }
 
 .remark-slide-content{
-    background-image: url('images/background2.png');
+    background-image: url('../images/background2.png');
     background-repeat:no-repeat;
     background-size:contain;
     background-position:center;
@@ -254,7 +254,7 @@ p{
 }
 
 .intro {
-    background-image: url('images/intro.png') !important;
+    background-image: url('../images/intro.png') !important;
     background-repeat:no-repeat;
     background-size:contain;
     background-position:center;

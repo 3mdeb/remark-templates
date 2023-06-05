@@ -201,7 +201,7 @@ You can also use a scripted way to generate the PDF.
 
 * Go to the directory with your HTML files
 
-* Print everything everything from current directory and subdirectories:
+* Print everything from current directory and subdirectories:
 
 ```shell
 ./remark-templates/scripts/print-pdfs.sh .

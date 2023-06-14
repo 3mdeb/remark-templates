@@ -82,7 +82,7 @@ given template can be found in: `<TEMPLATE_DIR>/css/styles.css` file.
 > for image size defined, typically with 5% step.
 
 ```md
-.center[.image-15[![]image.png)])]
+.center[.image-15[![](image.png)])]
 ```
 
 * Text centered in a single column:

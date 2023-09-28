@@ -87,6 +87,9 @@ h1, h2, h3 {
 .image-60 img {
     width: 60%;
 }
+.image-55 img {
+    width: 55%;
+}
 .image-50 img {
     width: 50%;
 }
@@ -101,6 +104,9 @@ h1, h2, h3 {
 }
 .image-30 img {
     width: 30%;
+}
+.image-25 img {
+    width: 25%;
 }
 .image-23 img {
     width: 23%;

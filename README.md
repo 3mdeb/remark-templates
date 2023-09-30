@@ -78,12 +78,23 @@ given template can be found in: `<TEMPLATE_DIR>/css/styles.css` file.
 
 * Common way of inserting centered image:
 
+Create `img` directory in main directory of repository:
+
+```shell
+mkdir img
+```
+
 > In this case image will be reduced to 15% in size. There are multiple styles
 > for image size defined, typically with 5% step.
 
 ```md
-.center[.image-15[![](image.png)])]
+.center[.image-15[![](/img/image.png)])]
 ```
+
+Using that syntax, with assumption that `remark-remplates` and `img` are in
+your main directory of repository, will cause that presentation render
+correctly even if it would be under ssubdirectories (in bigger presentation
+repositories you may like to have some division of presentation or archive).
 
 * Text centered in a single column:
 
@@ -137,8 +148,8 @@ given template can be found in: `<TEMPLATE_DIR>/css/styles.css` file.
 ### Create HTML file
 
 To use `remark-templates`, it should be added as a submodule to your
-documentation/presentation repository. If it has not been done already, you
-should do that with:
+documentation/presentation repository main directory. If it has not been done
+already, you should do that with:
 
 ```shell
 git submodule add git@github.com:3mdeb/remark-templates.git remark-templates

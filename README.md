@@ -93,7 +93,7 @@ mkdir img
 
 Using that syntax, with assumption that `remark-remplates` and `img` are in
 your main directory of repository, will cause that presentation render
-correctly even if it would be under ssubdirectories (in bigger presentation
+correctly even if it would be under subdirectories (in bigger presentation
 repositories you may like to have some division of presentation or archive).
 
 * Text centered in a single column:

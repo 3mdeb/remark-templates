@@ -36,8 +36,8 @@ start_sync() {
 
 # Function to run HTTP server
 run_http_server() {
+	ssh $REMOTE_USER_HOST 'pkill -f "python3 -m http.server"'
 	ssh $REMOTE_USER_HOST "cd $REMOTE_SRC_DIR && python3 -m http.server"
-	python3 -m http.server
 }
 
 # Function to check if a command exists

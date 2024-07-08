@@ -56,6 +56,12 @@ h1, h2, h3 {
 .intro h3{
     color:#fff;
 }
+.image-120 img {
+    width: 120%;
+}
+.image-110 img {
+    width: 110%;
+}
 .image-100 img {
     width: 100%;
 }

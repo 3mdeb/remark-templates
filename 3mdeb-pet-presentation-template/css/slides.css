@@ -196,7 +196,7 @@ h1, h2, h3 {
 }
 
 .remark-slide-content{
-    background-image: url('images/background2.png');
+    background-image: url('../images/background2.png');
     background-repeat:no-repeat;
     background-size:contain;
     background-position:center;
@@ -285,7 +285,7 @@ p{
 }
 
 .intro {
-    background-image: url('images/intro.png') !important;
+    background-image: url('../images/intro.png') !important;
     background-repeat:no-repeat;
     background-size:contain;
     background-position:center;

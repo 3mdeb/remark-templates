@@ -442,38 +442,3 @@ a {
     font-size: 1em;
     font-weight: bold;
 }
-
-.left-column50 {
-    width: 50%;
-    float: left;
-}
-
-.left-column45 {
-    width: 45%;
-    float: left;
-}
-
-.left-column55 {
-    width: 55%;
-    float: left;
-}
-
-.left-column30 {
-    width: 30%;
-    float: left;
-}
-
-.right-column45 {
-    width: 45%;
-    float: right;
-}
-
-.right-column50 {
-    width: 50%;
-    float: right;
-}
-
-.right-column55 {
-    width: 55%;
-    float: right;
-}

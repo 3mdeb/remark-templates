@@ -1,25 +1,30 @@
 #!/usr/bin/env bash
 
 PYTHON="invalid"
-PYTHON_HTTP_PORT=8081
+PYTHON_HTTP_PORT=${PYTHON_HTTP_PORT:-8081}
 DOC_URL="https://github.com/3mdeb/remark-templates#readme"
 
 usage() {
-    echo "print-pdfs.sh [FILES]..."
-    echo "Pass list of files to print only these specific files"
-    echo "Pass list of directories to search for HTMLs"
-    echo "Refer to the $DOC_URL for usage documentation"
-    echo ""
-    echo "Examples:"
-    echo "Search recursively for .html files in current directory and print them all:"
-    echo "./remark-templates/scripts/print-pdfs.sh ."
-    echo ""
-    echo "Print only specific files:"
-    echo "./remark-templates/scripts/print-pdfs.sh project_a/01_tpm_usage_design.html \\"
-    echo "  project_b/01_watchdog_integration.html"
-    echo ""
-    echo "Print everything from \"training_x\" and \"training_y\" subdirectories:"
-    echo "./remark-templates/scripts/print-pdfs.sh training_x training_y"
+    cat <<EOF
+print-pdfs.sh [FILES]...
+Pass list of files to print only these specific files
+Pass list of directories to search for HTMLs
+Refer to the $DOC_URL for usage documentation
+
+Examples:
+Search recursively for .html files in current directory and print them all:
+./remark-templates/scripts/print-pdfs.sh .
+
+Print only specific files:
+./remark-templates/scripts/print-pdfs.sh project_a/01_tpm_usage_design.html \\
+  project_b/01_watchdog_integration.html
+
+Print everything from "training_x" and "training_y" subdirectories:
+./remark-templates/scripts/print-pdfs.sh training_x training_y
+
+Start python server on different port:
+PYTHON_HTTP_PORT=8500 ./remark-templates/scripts/print-pdfs.sh .
+EOF
     exit 0
 }
 

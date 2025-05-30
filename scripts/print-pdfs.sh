@@ -135,8 +135,8 @@ print_single_pdf() {
 
     docker run --rm -it \
         --privileged \
-        -u $(id -u):$(id -g) \
-        -v $_out_dir:/out:rw \
+        -u "$(id -u)":"$(id -g)" \
+        -v "$_out_dir":/out:rw \
         --net=host \
         chrome-headless-pdf-maker \
         --prefer-css-page-size \
@@ -153,7 +153,7 @@ if [ $# -ne 0 ]; then
         [ -e $file ]
         error_check "$file not found"
 
-        _search_path+=($file)
+        _search_path+=("$file")
     done
 else
     usage
@@ -161,11 +161,11 @@ fi
 
 file_list=()
 for i in ${!_search_path[*]}; do
-    if [ -f $_search_path[$i] ]; then
-        file_list+=($_search_path[$i])
+    if [ -f "${_search_path[$i]}" ]; then
+        file_list+=("${_search_path[$i]}")
     else
         readarray -d '' file_list_temp < <(find ${_search_path[$i]} -path ./remark-templates -prune -o -name '*.html' -print0)
-        file_list+=(${file_list_temp[*]})
+        file_list+=("${file_list_temp[@]}")
     fi
 done
 
@@ -193,12 +193,12 @@ for i in ${!file_list[*]}; do
     echo "Processing $html_file"
 
     # parse <title> tag from the HTML file
-    title="$(grep -oPm1 "(?<=<title>)[^<]+" $html_file)"
+    title="$(grep -oPm1 "(?<=<title>)[^<]+" "$html_file")"
     # replace space (or multiple spaces) with a single underscores
     title="$(sed "s/ \+/_/g" <<< "$title")"
     file_name="${title}.pdf"
     pdf_file="${out_dir}/${file_name}"
-    print_single_pdf $html_file $(readlink -f $out_dir) $file_name
+    print_single_pdf "$html_file" "$(readlink -f $out_dir)" "$file_name"
     echo "Printed $pdf_file"
 done
 

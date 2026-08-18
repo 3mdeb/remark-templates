@@ -213,7 +213,7 @@
   background-repeat:no-repeat;
   background-size:contain;
   background-position:center;
-  color:#fff
+  color:#fff;
   z-index:1000;
 }
 
@@ -222,9 +222,30 @@
   background-repeat:no-repeat;
   background-size:contain;
   background-position:center;
-  color:#fff
+  color:#fff;
   z-index:1000;
 }
+
+    .outro h1
+    {
+        color: #fff;
+    }
+
+    .outro h2
+    {
+        color: #fff;
+    }
+
+    .outro h3
+    {
+        color: #fff;
+    }
+
+    .outro .remark-slide-number
+    {
+        display: none;
+    }
+
 
 a{
   color:#2BBA47;
@@ -408,4 +429,6 @@ li {
 }
 .pure-table-striped tr:nth-child(2n-1) td {
   background-color: #f2f2f2;
-  
+
+}
+}

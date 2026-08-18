@@ -88,7 +88,7 @@ mkdir img
 > for image size defined, typically with 5% step.
 
 ```md
-.center[.image-15[![](/img/image.png)])]
+.center[.image-15[![](/img/image.png)]]
 ```
 
 Using that syntax, with assumption that `remark-remplates` and `img` are in

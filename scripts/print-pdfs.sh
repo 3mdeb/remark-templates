@@ -2,6 +2,8 @@
 
 PYTHON_HTTP_PORT=${PYTHON_HTTP_PORT:-8765}
 DOC_URL="https://github.com/3mdeb/remark-templates#readme"
+SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+DOCKERFILE="$SCRIPT_DIR/chrome-headless-pdf-maker.dockerfile"
 
 usage() {
     cat <<EOF
@@ -23,6 +25,9 @@ Print everything from "training_x" and "training_y" subdirectories:
 
 Start python server on different port:
 PYTHON_HTTP_PORT=8500 ./remark-templates/scripts/print-pdfs.sh .
+
+Rebuild the docker image to get current security updates:
+REBUILD_DOCKER_IMAGE=1 ./remark-templates/scripts/print-pdfs.sh .
 EOF
     exit 0
 }
@@ -99,16 +104,22 @@ stop_http_server() {
 }
 
 build_docker_image() {
-    local _image=$(docker images | grep -E 'chrome-headless-pdf-maker(.*)latest')
-    if [ -z "${_image}" ]; then
-        echo "Building docker image"
-        (
-            cd remark-templates/scripts/
-            docker build -t chrome-headless-pdf-maker -f chrome-headless-pdf-maker.dockerfile .
-        )
-        error_check "Building the chrome-headless-pdf-maker docker image failed"
+    # the tag is the Dockerfile hash, so a changed Dockerfile gets a new image
+    local _hash
+    _hash=$(sha256sum "$DOCKERFILE" | cut -c1-12)
+    IMAGE="chrome-headless-pdf-maker:$_hash"
+    if [ "$REBUILD_DOCKER_IMAGE" = "1" ]; then
+        # pull the latest base image and skip the build cache, so the
+        # image gets current Debian security updates
+        echo "Rebuilding docker image $IMAGE"
+        docker build --pull --no-cache -t "$IMAGE" -f "$DOCKERFILE" "$SCRIPT_DIR"
+        error_check "Rebuilding the $IMAGE docker image failed"
+    elif [ -z "$(docker images -q "$IMAGE")" ]; then
+        echo "Building docker image $IMAGE"
+        docker build -t "$IMAGE" -f "$DOCKERFILE" "$SCRIPT_DIR"
+        error_check "Building the $IMAGE docker image failed"
     else
-        echo "Docker image already built"
+        echo "Docker image $IMAGE already built"
     fi
 }
 
@@ -125,7 +136,8 @@ print_single_pdf() {
         -u "$(id -u)":"$(id -g)" \
         -v "$_out_dir":/out:rw \
         --net=host \
-        chrome-headless-pdf-maker \
+        --pull=never \
+        "$IMAGE" \
         --prefer-css-page-size \
         --url "http://127.0.0.1:$PYTHON_HTTP_PORT/$_input_file" \
         --pdf "/out/$_out_file_name"

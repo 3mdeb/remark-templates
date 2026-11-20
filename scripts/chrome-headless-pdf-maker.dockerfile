@@ -39,12 +39,11 @@ RUN apt-get update && \
         libxtst6 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-RUN git clone https://github.com/3mdeb/chrome-headless-pdf-maker && \
-    cd chrome-headless-pdf-maker && \
+# install the dependency versions locked in the tool's yarn.lock
+RUN git clone https://github.com/3mdeb/chrome-headless-pdf-maker /opt/chrome-headless-pdf-maker && \
+    cd /opt/chrome-headless-pdf-maker && \
     git checkout cee6d4e81695771b8aa44ee484dca7e84329d1ec && \
-    yarn install && \
-    npm pack && \
-    npm install -g chrome-headless-pdf-maker*.tgz && \
-    cd .. && \
-    rm -rf chrome-headless-pdf-maker
-ENTRYPOINT [ "/usr/local/bin/chrome-headless-pdf-maker" ]
+    rm -rf .git && \
+    yarn install --frozen-lockfile --production && \
+    yarn cache clean
+ENTRYPOINT [ "node", "/opt/chrome-headless-pdf-maker/index.js" ]

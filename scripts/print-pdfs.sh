@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 PYTHON="invalid"
-PYTHON_HTTP_PORT=${PYTHON_HTTP_PORT:-8081}
+PYTHON_HTTP_PORT=${PYTHON_HTTP_PORT:-8765}
 DOC_URL="https://github.com/3mdeb/remark-templates#readme"
 
 usage() {

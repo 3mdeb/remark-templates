@@ -194,9 +194,9 @@ for i in ${!file_list[*]}; do
 
     # parse <title> tag from the HTML file
     title="$(grep -oPm1 "(?<=<title>)[^<]+" "$html_file")"
-    # replace space (or multiple spaces) with a single underscores
-    title="$(sed "s/ \+/_/g" <<< "$title")"
-    file_name="${title}.pdf"
+    # keep only characters that are safe in a file name, replace the rest
+    # with underscores, and drop leading dashes and dots
+    file_name="$(tr -c 'A-Za-z0-9._-' '_' <<< "$title" | sed 's/^[-.]*//; s/_*$//').pdf"
     pdf_file="${out_dir}/${file_name}"
     print_single_pdf "$html_file" "$(readlink -f "$out_dir")" "$file_name"
     echo "Printed $pdf_file"

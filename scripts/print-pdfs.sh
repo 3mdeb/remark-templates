@@ -135,8 +135,11 @@ print_single_pdf() {
     local _input_file=$1
     local _out_dir=$2
     local _out_file_name=$3
+    # interactive mode forwards Ctrl+c, but docker refuses it without a terminal
+    local _tty=()
+    [ -t 0 ] && _tty=(-it)
 
-    docker run --rm -it \
+    docker run --rm "${_tty[@]}" \
         --privileged \
         -u "$(id -u)":"$(id -g)" \
         -v "$_out_dir":/out:rw \

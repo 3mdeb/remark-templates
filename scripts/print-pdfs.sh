@@ -106,12 +106,14 @@ $PYTHON_HTTP_PORT is in use (another python HTTP server instance runnning)?"
 }
 
 stop_http_server() {
-    echo "Stopping HTTP server..."
-    if [ -z $PYTHON_PID ]; then
-        echo "PYTHON_PID not set"
-        exit 1
+    # runs from the EXIT trap, also when the server was never started
+    if [ -z "$PYTHON_PID" ]; then
+        return
     fi
-    kill -9 $PYTHON_PID
+    echo "Stopping HTTP server..."
+    kill "$PYTHON_PID" &> /dev/null
+    wait "$PYTHON_PID" &> /dev/null
+    PYTHON_PID=""
     echo "HTTP server stopped"
 }
 
@@ -123,6 +125,7 @@ build_docker_image() {
             cd remark-templates/scripts/
             docker build -t chrome-headless-pdf-maker -f chrome-headless-pdf-maker.dockerfile .
         )
+        error_check "Building the chrome-headless-pdf-maker docker image failed"
     else
         echo "Docker image already built"
     fi
@@ -181,8 +184,9 @@ build_docker_image
 out_dir="pdf"
 mkdir -p "$out_dir"
 
-# stop python HTTP server on Ctrl+c
-trap stop_http_server INT
+# stop python HTTP server on every exit, including errors and Ctrl+c
+trap stop_http_server EXIT
+trap 'exit 130' INT TERM
 
 start_http_server
 
@@ -201,5 +205,3 @@ for i in ${!file_list[*]}; do
     print_single_pdf "$html_file" "$(readlink -f "$out_dir")" "$file_name"
     echo "Printed $pdf_file"
 done
-
-stop_http_server

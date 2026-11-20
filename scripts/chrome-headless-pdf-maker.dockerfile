@@ -46,4 +46,6 @@ RUN git clone https://github.com/3mdeb/chrome-headless-pdf-maker /opt/chrome-hea
     rm -rf .git && \
     yarn install --frozen-lockfile --production && \
     yarn cache clean
+# the update check has nowhere to keep state in a throwaway container
+ENV NO_UPDATE_NOTIFIER=1
 ENTRYPOINT [ "node", "/opt/chrome-headless-pdf-maker/index.js" ]

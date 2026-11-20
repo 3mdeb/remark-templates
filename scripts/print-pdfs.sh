@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-PYTHON="invalid"
 PYTHON_HTTP_PORT=${PYTHON_HTTP_PORT:-8765}
 DOC_URL="https://github.com/3mdeb/remark-templates#readme"
 
@@ -44,16 +43,8 @@ check_dependencies() {
 
     echo "Checking for python3..."
     which python3 &> /dev/null
-    if [ $? -ne 0  ]; then
-        echo "python3 not available, checking for python ..."
-        which python &> /dev/null
-        error_check "python3 or python must be available in PATH - install it first"
-        PYTHON="python"
-        echo "python available"
-    else
-        PYTHON="python3"
-        echo "python3 available"
-    fi
+    error_check "python3 must be available in PATH - install it first"
+    echo "python3 available"
 }
 
 build_file_list() {
@@ -81,24 +72,14 @@ check_html_files() {
 
 start_http_server() {
     echo "Starting HTTP server..."
-    case $PYTHON in
-        "python3")
-            $PYTHON -m http.server $PYTHON_HTTP_PORT &> /dev/null &
-            PYTHON_PID=$!
-            ;;
-        "python")
-            $PYTHON -m SimpleHTTPServer $PYTHON_HTTP_PORT &> /dev/null &
-            PYTHON_PID=$!
-            ;;
-        *)
-            echo "Invalid PYTHON"
-            exit 1
-            ;;
-    esac
+    # the server exposes the whole working directory, so it listens on
+    # loopback only. The container shares the host network and reaches it there.
+    python3 -m http.server --bind 127.0.0.1 "$PYTHON_HTTP_PORT" &> /dev/null &
+    PYTHON_PID=$!
 
     # verify whether the HTTP server process was started
     sleep 1
-    kill -0 $! &> /dev/null
+    kill -0 "$PYTHON_PID" &> /dev/null
     error_check "Failed to start python HTTP server. Maybe the port \
 $PYTHON_HTTP_PORT is in use (another python HTTP server instance runnning)?"
 
